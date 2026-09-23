@@ -79,7 +79,7 @@ della frase sul terminale: un livello di escalation non passa mai in silenzio.
 
 | Cosa | Come lo controlli |
 |---|---|
-| Nessuna dipendenza di rete | `crates/rivals-belt/Cargo.toml`: `serde`, `serde_json`, `toml`. Nient'altro |
+| Nessuna dipendenza di rete | Un test chiede a Cargo l'albero **intero** delle dipendenze, non solo quelle dirette, e fallisce se ci trova una libreria di rete: `tests/nessuna_rete.rs`. Gira a ogni push |
 | Nessun codice di rete | `grep -rnE "TcpStream\|TcpListener\|reqwest\|ureq\|hyper\|UdpSocket" crates/ --include=*.rs` → nessun risultato |
 | Nessuna lettura dello schermo | `src/finestra.rs` chiama `GetForegroundWindow`, `GetWindowTextW` e il nome del processo. Non esiste nessuna cattura schermo |
 | Nessun percorso di sviluppo nei file | c'è un test che fallisce: `tests/nessun_percorso_assoluto.rs` |
