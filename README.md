@@ -1,4 +1,4 @@
-# 3Rivals
+# 3Rivals [Non finito]
 
 **Get better or get Outclassed!**
 
