@@ -1,0 +1,30 @@
+# ─── Build ───────────────────────────────────────────────────────────────────
+/target/
+**/target/
+
+# ─── Segreti ─────────────────────────────────────────────────────────────────
+# Nessuna chiave vive in questo repo, e la chiave API futura andrà in Windows
+# Credential Manager, non in un file. Queste righe esistono lo stesso: un
+# segreto si ignora prima di esistere, perché dopo resta nella storia di git.
+.env
+.env.*
+*.env
+secrets.toml
+config.local.toml
+*.key
+*.pem
+*.pfx
+credentials*.json
+api_key*
+
+# ─── Dati di esecuzione ──────────────────────────────────────────────────────
+# Registro, wav generati e regole vivono in %APPDATA%/Trialogue, fuori dal repo.
+# Il registro contiene i titoli delle tue finestre: non deve finire in un commit
+# per sbaglio, nemmeno lanciando la cintura con `--dati .`
+/dati/
+*.jsonl
+*.wav
+
+# ─── Windows ─────────────────────────────────────────────────────────────────
+desktop.ini
+Thumbs.db

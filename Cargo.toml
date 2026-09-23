@@ -1,0 +1,23 @@
+# Workspace di 3Rivals.
+#
+# Nasce con un membro solo — `rivals-belt`, il WO-01 — perche' la cintura e' un
+# binario autonomo che non dipende da nient'altro: niente AI, niente rete,
+# niente audio condiviso. Gli altri crate arrivano con le fasi successive.
+#
+# La radice esiste gia' adesso per una ragione pratica: un `Cargo.lock` unico dal
+# primo giorno, che nasce con le sole dipendenze che servono.
+
+[workspace]
+resolver = "3"
+members = ["crates/rivals-belt"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+license = "MIT OR Apache-2.0"
+
+[workspace.dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+toml = "0.8"

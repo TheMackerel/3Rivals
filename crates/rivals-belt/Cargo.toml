@@ -1,0 +1,30 @@
+# rivals-belt — la cintura (WO-01).
+#
+# Tre dipendenze, e la ragione di ognuna:
+#   serde + toml        leggere `rules.toml` senza scrivere un parser TOML
+#   serde_json          il registro JSONL, che va riletto dal report
+#
+# Tutto il resto e' std piu' FFI raw a user32 / kernel32 / winmm.
+# Niente crate `windows`: sei funzioni non valgono mezzo gigabyte di binding, e
+# la cintura deve compilare in fretta e partire senza runtime.
+#
+# Niente `rand` (un xorshift basta a scegliere una frase), niente `chrono`
+# (l'ora locale la da' `GetLocalTime`), niente `clap` (sette comandi si parsano
+# a mano), niente audio: i wav li suona `PlaySoundW`.
+
+[package]
+name = "rivals-belt"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "La cintura di 3Rivals: guarda la finestra attiva e ti richiama quando esci di pista."
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+toml = { workspace = true }
+
+[[bin]]
+name = "rivals-belt"
+path = "src/main.rs"
